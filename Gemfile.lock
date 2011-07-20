@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    attribute_sanitizer (0.0.1)
+      activesupport
+      i18n
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.0.9)
+    i18n (0.6.0)
+    mocha (0.9.12)
+    shoulda (2.11.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  attribute_sanitizer!
+  mocha
+  shoulda
