@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    attribute_sanitizer (0.0.1)
+    attribute_sanitizer (0.0.3)
       activesupport
       i18n
 

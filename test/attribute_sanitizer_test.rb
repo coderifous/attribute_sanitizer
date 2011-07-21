@@ -92,6 +92,15 @@ class TestAttributeSanitizer < Test::Unit::TestCase
       end
       assert_equal({bar: 1}, Bagel.sanitize_attributes(foo: 1))
     end
+
+    should "let us sanitize nil" do
+      Bagel.sanitize_attributes do
+        add_step do |val|
+          "pass"
+        end
+      end
+      assert_equal "pass", Bagel.sanitize_attributes(nil)
+    end
   end
 
   def stringify(val)

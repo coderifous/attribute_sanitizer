@@ -45,17 +45,14 @@ class AttributeSanitizer
     # end
     #
     # Foo.sanitize_attributes("1,2,3") # => ["1", "2", "3"]
-    def sanitize_attributes(attrs=nil, &block)
-      if attrs
-        return attrs unless @_attribute_sanitizer
-        @_attribute_sanitizer.sanitize(attrs)
-      elsif block_given?
+    def sanitize_attributes(*args, &block)
+      if block_given?
         @_attribute_sanitizer = AttributeSanitizer.new(self)
         @_attribute_sanitizer.instance_eval(&block)
       else
-        raise "sanitize_attributes needs an argument"
+        retval = @_attribute_sanitizer ? args.map { |val| @_attribute_sanitizer.sanitize(val) } : args
+        retval.size < 2 ? retval.first : retval
       end
     end
-
   end
 end
